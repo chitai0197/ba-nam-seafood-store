@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://haisanbanam.com/sitemap.xml
+
+# Ngăn chặn một số đường dẫn không cần thiết
+Disallow: /assets/
+Disallow: /private/
