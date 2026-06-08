@@ -87,7 +87,9 @@ const i18n = {
         footer_nav_title: "Khám Phá",
         footer_contact_title: "Thông Tin Liên Hệ",
         footer_address: "📍 Địa chỉ: 20/15 Lê Văn Phấn, Phường Phú Thủy, TP. Phan Thiết",
+        footer_hours: "🕐 Giờ nhận đơn: 7:00 – 21:00 hàng ngày",
         footer_copy: "© 2026 Hải Sản Bà Năm. All rights reserved.",
+        rev_more: "Xem thêm đánh giá thực tế từ khách hàng — nhắn <a href='https://zalo.me/0823559496' target='_blank'>Zalo: 082 355 9496</a>",
         
         modal_title: "Đặt Mua Sản Phẩm",
         modal_desc: "Vui lòng liên hệ trực tiếp để chúng tôi chốt đơn và phục vụ bạn tốt nhất.",
@@ -187,7 +189,9 @@ const i18n = {
         footer_nav_title: "Explore",
         footer_contact_title: "Contact Info",
         footer_address: "📍 Address: 20/15 Le Van Phan, Phu Thuy Ward, Phan Thiet City",
+        footer_hours: "🕐 Order hours: 7:00 AM – 9:00 PM daily",
         footer_copy: "© 2026 Mrs Nam Seafood. All rights reserved.",
+        rev_more: "See more real reviews from customers — message <a href='https://zalo.me/0823559496' target='_blank'>Zalo: 082 355 9496</a>",
         
         modal_title: "Order Product",
         modal_desc: "Please contact us directly to confirm your order so we can serve you best.",
@@ -295,37 +299,16 @@ window.addEventListener('click', (e) => {
 });
 
 // Mobile menu toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-const headerRight = document.querySelector('.header-right');
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinksEl = document.getElementById('navLinks');
 
 mobileMenuBtn.addEventListener('click', () => {
-    if (navLinks.style.display === 'flex') {
-        navLinks.style.display = 'none';
-        if(headerRight) headerRight.style.display = 'none';
-        navbar.style.backgroundColor = '';
-    } else {
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-        navLinks.style.padding = '20px 0';
-        navLinks.style.borderBottom = '1px solid var(--border)';
-        
-        if(headerRight) {
-            headerRight.style.display = 'flex';
-            headerRight.style.position = 'absolute';
-            headerRight.style.top = '15px';
-            headerRight.style.right = '60px'; // make space for hamburger
-        }
-        
-        // Make text dark for mobile menu
-        Array.from(navLinks.children).forEach(link => {
-            link.style.color = 'var(--text-main)';
-            link.style.marginBottom = '15px';
-        });
-    }
+    navLinksEl.classList.toggle('open');
+});
+
+// Close mobile menu when a nav link is clicked
+navLinksEl.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinksEl.classList.remove('open');
+    });
 });
