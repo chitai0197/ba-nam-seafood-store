@@ -960,6 +960,109 @@ footer {
     margin-top: 15px;
 }
 
+/* Info Bar */
+.info-bar {
+    background-color: #03396c;
+    color: #bbdefb;
+    font-size: 0.82rem;
+    padding: 7px 0;
+    position: relative;
+    z-index: 999;
+}
+
+.info-bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px 14px;
+}
+
+.info-bar strong {
+    color: #ffd700;
+}
+
+.info-bar a {
+    color: #bbdefb;
+    text-decoration: none;
+}
+
+.info-bar a:hover {
+    color: white;
+}
+
+.info-divider {
+    opacity: 0.4;
+}
+
+/* Floating Zalo Button */
+.zalo-float {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    z-index: 9999;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(0,104,255,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: zalo-pulse 2.5s infinite;
+}
+
+.zalo-float svg {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+}
+
+.zalo-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 22px rgba(0,104,255,0.6);
+    animation: none;
+}
+
+.zalo-tooltip {
+    position: absolute;
+    right: 68px;
+    background: #0068FF;
+    color: white;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.zalo-float:hover .zalo-tooltip {
+    opacity: 1;
+}
+
+@keyframes zalo-pulse {
+    0%, 100% { box-shadow: 0 4px 16px rgba(0,104,255,0.45); }
+    50% { box-shadow: 0 4px 24px rgba(0,104,255,0.75), 0 0 0 8px rgba(0,104,255,0.1); }
+}
+
+/* Reviews footer note */
+.reviews-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.reviews-footer a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .combo-card-large {
@@ -976,9 +1079,28 @@ footer {
 
 @media (max-width: 768px) {
     .nav-links, .header-phone {
-        display: none; 
+        display: none;
     }
-    
+
+    .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border);
+        z-index: 999;
+    }
+
+    .nav-links.open a {
+        color: var(--text-main);
+        padding: 10px 30px;
+        font-size: 1rem;
+    }
+
     .mobile-menu-btn {
         display: flex;
     }
@@ -990,8 +1112,30 @@ footer {
     .about-container {
         grid-template-columns: 1fr;
     }
-    
+
     .modal-actions {
         flex-direction: column;
+    }
+
+    .info-bar-inner {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+    }
+
+    .info-divider {
+        display: none;
+    }
+
+    .zalo-float {
+        bottom: 20px;
+        right: 16px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .zalo-float svg {
+        width: 52px;
+        height: 52px;
     }
 }
