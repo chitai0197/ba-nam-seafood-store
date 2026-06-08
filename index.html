@@ -70,43 +70,50 @@
 </head>
 <body>
 
-    <!-- Info Bar -->
-    <div class="info-bar">
-        <div class="container info-bar-inner">
-            <span>🕐 Nhận đơn: <strong>7:00 – 21:00</strong> hàng ngày</span>
-            <span class="info-divider">|</span>
-            <span>🛵 Giao <strong>miễn phí nội ô</strong> Phan Thiết</span>
-            <span class="info-divider">|</span>
-            <span>🏪 Hoặc <strong>đến lấy trực tiếp</strong> tại cửa hàng</span>
-            <span class="info-divider">|</span>
-            <a href="https://zalo.me/0823559496" target="_blank">📦 Ngoại ô → <strong>Nhắn Zalo báo giá ship</strong></a>
-        </div>
-    </div>
+    <!-- Site Header -->
+    <header class="site-header" id="siteHeader">
 
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="container">
-            <a href="#" class="logo" data-i18n="logo_text">Bà Năm</a>
-            <nav class="nav-links" id="navLinks">
-                <a href="#home" data-i18n="nav_home">Trang chủ</a>
-                <a href="#about" data-i18n="nav_about">Cam kết</a>
-                <a href="#products" data-i18n="nav_products">Sản phẩm</a>
-                <a href="#process" data-i18n="nav_process">Quy trình</a>
-                <a href="#combo" data-i18n="nav_combo">Combo</a>
-                <a href="#reviews" data-i18n="nav_reviews">Đánh giá</a>
-            </nav>
-            <div class="header-right" id="headerRight">
-                <div class="lang-switch">
-                    <button id="lang-vi" class="lang-btn active">VN</button>
-                    <button id="lang-en" class="lang-btn">EN</button>
-                </div>
+        <!-- Info Bar -->
+        <div class="info-bar">
+            <div class="container info-bar-inner" id="infoBarDesktop">
+                <span class="info-item">🕐 Nhận đơn: <strong>7:00 – 21:00</strong> hàng ngày</span>
+                <span class="info-divider">|</span>
+                <span class="info-item">🛵 Giao <strong>miễn phí nội ô</strong> Phan Thiết</span>
+                <span class="info-divider">|</span>
+                <span class="info-item">🏪 Hoặc <strong>đến lấy trực tiếp</strong> tại cửa hàng</span>
+                <span class="info-divider">|</span>
+                <a class="info-item" href="https://zalo.me/0823559496" target="_blank">📦 Ngoại ô → <strong>Nhắn Zalo báo giá ship</strong></a>
             </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="info-bar-mobile" id="infoBarMobile" aria-live="polite"></div>
         </div>
+
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="container">
+                <a href="#" class="logo" data-i18n="logo_text">Bà Năm</a>
+                <nav class="nav-links" id="navLinks">
+                    <a href="#home" data-i18n="nav_home">Trang chủ</a>
+                    <a href="#about" data-i18n="nav_about">Cam kết</a>
+                    <a href="#products" data-i18n="nav_products">Sản phẩm</a>
+                    <a href="#process" data-i18n="nav_process">Quy trình</a>
+                    <a href="#combo" data-i18n="nav_combo">Combo</a>
+                    <a href="#reviews" data-i18n="nav_reviews">Đánh giá</a>
+                </nav>
+                <div class="header-right" id="headerRight">
+                    <div class="lang-switch">
+                        <button id="lang-vi" class="lang-btn active">VN</button>
+                        <button id="lang-en" class="lang-btn">EN</button>
+                    </div>
+                    <a href="https://zalo.me/0823559496" target="_blank" class="btn-zalo-nav">💬 Nhắn Zalo</a>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
     </header>
 
     <!-- Hero Section -->

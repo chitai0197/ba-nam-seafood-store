@@ -132,32 +132,33 @@ h2 {
     color: white;
 }
 
-/* Navbar */
-.navbar {
-    position: fixed;
+/* ===== Site Header ===== */
+.site-header {
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 0;
     z-index: 1000;
-    transition: var(--transition);
-    border-bottom: 1px solid transparent;
-    color: white;
 }
 
-.navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 15px 0;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-main);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+/* Navbar */
+.navbar {
+    background-color: rgba(3, 57, 108, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: white;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-header.scrolled .navbar {
+    background-color: rgba(2, 45, 87, 0.96);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 68px;
 }
 
 .logo {
@@ -199,43 +200,29 @@ h2 {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 20px;
-}
-
-.header-phone {
-    display: flex;
-    align-items: center;
+    gap: 14px;
 }
 
 .lang-switch {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     background: rgba(255, 255, 255, 0.1);
-    padding: 4px 8px;
+    padding: 3px 6px;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.navbar.scrolled .lang-switch {
-    background: #f0f7fb;
-    border-color: var(--border);
 }
 
 .lang-btn {
     background: none;
     border: none;
-    color: white;
+    color: rgba(255,255,255,0.8);
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 600;
-    padding: 4px 8px;
+    padding: 3px 7px;
     border-radius: 12px;
     transition: var(--transition);
-}
-
-.navbar.scrolled .lang-btn {
-    color: var(--text-muted);
 }
 
 .lang-btn.active {
@@ -244,26 +231,49 @@ h2 {
 }
 
 .lang-btn:not(.active):hover {
-    opacity: 0.8;
+    color: white;
+}
+
+.btn-zalo-nav {
+    background: linear-gradient(135deg, #f5a623, #e8880e);
+    color: white !important;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(245, 166, 35, 0.3);
+}
+
+.btn-zalo-nav:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(245, 166, 35, 0.5);
 }
 
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
     cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    padding: 4px;
 }
 
 .mobile-menu-btn span {
-    width: 30px;
+    width: 26px;
     height: 2px;
     background-color: currentColor;
+    display: block;
     transition: var(--transition);
 }
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    height: calc(100vh - 40px);
+    min-height: 560px;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -271,7 +281,6 @@ h2 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 80px;
     color: white;
 }
 
@@ -962,20 +971,29 @@ footer {
 
 /* Info Bar */
 .info-bar {
-    background-color: #03396c;
+    background-color: #0a2540;
     color: #bbdefb;
-    font-size: 0.82rem;
-    padding: 7px 0;
-    position: relative;
-    z-index: 999;
+    font-size: 0.8rem;
+    max-height: 40px;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.site-header.scrolled .info-bar {
+    max-height: 0;
 }
 
 .info-bar-inner {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    gap: 8px 14px;
+    height: 40px;
+    gap: 0 12px;
+}
+
+.info-item {
+    white-space: nowrap;
 }
 
 .info-bar strong {
@@ -992,7 +1010,33 @@ footer {
 }
 
 .info-divider {
-    opacity: 0.4;
+    opacity: 0.35;
+}
+
+/* Mobile rotating info bar */
+.info-bar-mobile {
+    display: none;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    text-align: center;
+    padding: 0 16px;
+    color: #bbdefb;
+}
+
+.info-bar-mobile.active {
+    display: flex;
+}
+
+.info-rotate-msg {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+}
+
+.info-rotate-msg.visible {
+    opacity: 1;
 }
 
 /* Floating Zalo Button */
@@ -1078,7 +1122,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .nav-links, .header-phone {
+    .nav-links, .btn-zalo-nav {
         display: none;
     }
 
@@ -1089,24 +1133,46 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.98);
-        padding: 20px 0;
-        border-bottom: 1px solid var(--border);
+        background-color: rgba(2, 45, 87, 0.97);
+        backdrop-filter: blur(8px);
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
         z-index: 999;
     }
 
     .nav-links.open a {
-        color: var(--text-main);
-        padding: 10px 30px;
-        font-size: 1rem;
+        color: white;
+        padding: 11px 28px;
+        font-size: 0.95rem;
     }
 
     .mobile-menu-btn {
         display: flex;
     }
 
+    /* Switch info bar to rotating mode on mobile */
+    .info-bar-inner {
+        display: none;
+    }
+
+    .info-bar-mobile {
+        display: flex;
+    }
+
+    .info-bar {
+        max-height: 36px;
+    }
+
+    .site-header.scrolled .info-bar {
+        max-height: 0;
+    }
+
+    .hero {
+        height: calc(100vh - 36px);
+    }
+
     .hero h1 {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
     }
 
     .about-container {
@@ -1115,16 +1181,6 @@ footer {
 
     .modal-actions {
         flex-direction: column;
-    }
-
-    .info-bar-inner {
-        flex-direction: column;
-        gap: 4px;
-        text-align: center;
-    }
-
-    .info-divider {
-        display: none;
     }
 
     .zalo-float {
@@ -1137,5 +1193,20 @@ footer {
     .zalo-float svg {
         width: 52px;
         height: 52px;
+    }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .zalo-float {
+        animation: none;
+    }
+    .hero {
+        background-attachment: scroll;
     }
 }

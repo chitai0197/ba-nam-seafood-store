@@ -233,16 +233,46 @@ function switchLanguage(lang) {
 document.getElementById('lang-vi').addEventListener('click', () => switchLanguage('vi'));
 document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
 
-// Navbar scroll effect
-const navbar = document.querySelector('.navbar');
+// Header scroll effect: hide info bar, keep nav sticky
+const siteHeader = document.getElementById('siteHeader');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+    if (window.scrollY > 40) {
+        siteHeader.classList.add('scrolled');
     } else {
-        navbar.classList.remove('scrolled');
+        siteHeader.classList.remove('scrolled');
     }
-});
+}, { passive: true });
+
+// Mobile info bar: rotate messages every 4s
+const infoMessages = [
+    '🕐 Nhận đơn: <strong>7:00 – 21:00</strong> hàng ngày',
+    '🛵 Giao <strong>miễn phí nội ô</strong> Phan Thiết',
+    '🏪 Hoặc <strong>đến lấy trực tiếp</strong> tại cửa hàng',
+    '📦 Ngoại ô? <a href="https://zalo.me/0823559496" target="_blank" style="color:#ffd700;font-weight:600;">Nhắn Zalo báo giá ship</a>'
+];
+
+const mobileInfoBar = document.getElementById('infoBarMobile');
+if (mobileInfoBar) {
+    let currentMsg = 0;
+    const msgEl = document.createElement('span');
+    msgEl.className = 'info-rotate-msg visible';
+    msgEl.innerHTML = infoMessages[0];
+    mobileInfoBar.appendChild(msgEl);
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReduced) {
+        setInterval(() => {
+            msgEl.style.opacity = '0';
+            setTimeout(() => {
+                currentMsg = (currentMsg + 1) % infoMessages.length;
+                msgEl.innerHTML = infoMessages[currentMsg];
+                msgEl.style.opacity = '1';
+            }, 450);
+        }, 4000);
+    }
+}
 
 // Modal & Preparation Logic
 const modal = document.getElementById('orderModal');
