@@ -94,9 +94,10 @@
                 <nav class="nav-links" id="navLinks">
                     <a href="#home" data-i18n="nav_home">Trang chủ</a>
                     <a href="#about" data-i18n="nav_about">Cam kết</a>
+                    <a href="#daily-catch">Mẻ lưới</a>
                     <a href="#products" data-i18n="nav_products">Sản phẩm</a>
-                    <a href="#process" data-i18n="nav_process">Quy trình</a>
                     <a href="#combo" data-i18n="nav_combo">Combo</a>
+                    <a href="#delivery">Giao hàng</a>
                     <a href="#reviews" data-i18n="nav_reviews">Đánh giá</a>
                 </nav>
                 <div class="header-right" id="headerRight">
@@ -147,6 +148,38 @@
                     <li data-i18n="feat_4">Bao ăn, 1 đổi 1 tận nhà nếu không đạt chuẩn</li>
                 </ul>
             </div>
+        </div>
+
+        <!-- Người Làm Biển Block -->
+        <div class="container owner-story-block">
+            <div class="owner-portrait-wrap">
+                <!-- 📸 THAY BẰNG ẢNH CHỦ SHOP THẬT: <img src="assets/owner_portrait.jpg" alt="Bà Năm"> -->
+                <div class="img-placeholder portrait-placeholder">
+                    <span class="ph-icon">📸</span>
+                    <p class="ph-label">THAY BẰNG<br>ẢNH CHỦ SHOP THẬT</p>
+                    <small>Bà Năm bên sạp cá<br>Tỉ lệ 4:5 hoặc 1:1</small>
+                </div>
+            </div>
+            <div class="owner-story-text">
+                <h3>Người Làm Biển Phan Thiết</h3>
+                <p>Hơn 15 năm gắn bó với cảng cá Phan Thiết, Bà Năm biết rõ con cá nào vừa lên bờ lúc tinh mơ, mẻ mực nào đánh bắt ngoài khơi xa còn tươi rói mùi nước biển. Mỗi sáng sớm, Bà có mặt tại bến để chọn tay từng con ghẹ còn búng, từng con mực vẫn còn phồng nước.</p>
+                <blockquote class="owner-quote">"Tôi không bán hải sản để lấy số lượng. Tôi chỉ bán những gì tôi dám cho gia đình mình ăn." <em>— Bà Năm</em></blockquote>
+                <a href="https://zalo.me/0823559496" target="_blank" class="btn-secondary">💬 Nhắn Trực Tiếp Cho Bà Năm</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Catch Section -->
+    <section id="daily-catch" class="section daily-catch-section" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>🌊 Mẻ Lưới Hôm Nay</h2>
+                <p>Cập nhật ngày: <strong id="catchDateDisplay"></strong></p>
+            </div>
+            <div class="catch-grid" id="catchGrid">
+                <!-- Được render tự động từ mảng dailyCatch trong script.js -->
+            </div>
+            <p class="catch-note">⚓ Số lượng phụ thuộc hoàn toàn vào mẻ lưới trong ngày — <strong>ưu tiên đặt trước 48 giờ</strong> để đảm bảo hàng tươi nhất cho bạn.</p>
         </div>
     </section>
 
@@ -297,6 +330,135 @@
         </div>
     </section>
 
+    <!-- Delivery & FAQ Section -->
+    <section id="delivery" class="section delivery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>🚚 Giao Hàng & Thanh Toán</h2>
+                <p>Rõ ràng từng bước — để bạn yên tâm đặt hàng không lo ngại.</p>
+            </div>
+
+            <!-- Delivery Zones -->
+            <div class="delivery-zones">
+                <div class="delivery-zone zone-free">
+                    <div class="zone-icon">🛵</div>
+                    <div class="zone-badge-wrap"><span class="zone-badge free">MIỄN PHÍ SHIP</span></div>
+                    <h3>Nội Ô Phan Thiết</h3>
+                    <p class="zone-time">⏱ Giao trong <strong>2 giờ</strong> sau khi chốt đơn</p>
+                    <ul class="zone-areas">
+                        <li>Phú Thủy, Phú Trinh, Đức Nghĩa</li>
+                        <li>Đức Long, Bình Hưng, Hưng Long</li>
+                        <li>Thanh Hải, Hải Long, Phú Hài</li>
+                        <li>Mũi Né và các khu resort ven biển</li>
+                    </ul>
+                    <a href="https://zalo.me/0823559496" target="_blank" class="btn-primary">Đặt Ngay Qua Zalo</a>
+                </div>
+                <div class="delivery-zone zone-paid">
+                    <div class="zone-icon">📦</div>
+                    <div class="zone-badge-wrap"><span class="zone-badge paid">PHÍ SHIP THEO KV</span></div>
+                    <h3>Toàn Quốc</h3>
+                    <p class="zone-time">⏱ Giao nhanh <strong>24–48 giờ</strong> sau đóng hàng</p>
+                    <ul class="zone-areas">
+                        <li>Thùng xốp chuyên dụng + đá giữ lạnh</li>
+                        <li>Giữ tươi 24–36 giờ trong hộp kín</li>
+                        <li>Nhắn Zalo báo địa chỉ → báo giá ship ngay</li>
+                        <li>Cam kết hải sản tươi khi nhận hàng</li>
+                    </ul>
+                    <a href="https://zalo.me/0823559496" target="_blank" class="btn-secondary">Hỏi Giá Ship Ngay</a>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-info">
+                <h3>💳 Phương Thức Thanh Toán</h3>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <span class="pm-icon">💵</span>
+                        <div>
+                            <h4>COD – Trả khi nhận hàng</h4>
+                            <p>Áp dụng cho đơn nội ô Phan Thiết</p>
+                        </div>
+                    </div>
+                    <div class="payment-method">
+                        <span class="pm-icon">🏦</span>
+                        <div>
+                            <h4>Chuyển khoản trước</h4>
+                            <p>Áp dụng cho đơn liên tỉnh & combo trên 500.000đ</p>
+                        </div>
+                    </div>
+                    <div class="payment-method">
+                        <span class="pm-icon">🔒</span>
+                        <div>
+                            <h4>Cọc 30% cho đơn combo lớn</h4>
+                            <p>Đơn từ 1 triệu trở lên — cọc để giữ hải sản tươi nhất cho bạn</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="faq-wrap">
+                <h3>❓ Câu Hỏi Thường Gặp</h3>
+                <div class="faq-list" id="faqList">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Đặt hàng tối thiểu bao nhiêu?
+                            <span class="faq-arrow">▾</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Đơn nội ô tối thiểu <strong>500g/loại</strong>. Đơn liên tỉnh tối thiểu <strong>1kg</strong> để đảm bảo chi phí đóng gói và hải sản giữ được độ tươi ngon nhất.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Khung giờ giao hàng nội ô?
+                            <span class="faq-arrow">▾</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Nhận đơn từ <strong>7:00 – 19:00</strong> hàng ngày. Giao trong vòng 2 giờ từ khi xác nhận đơn. Đặt sau 19:00 sẽ được giao sáng hôm sau sớm nhất.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Không có nhà lúc giao thì sao?
+                            <span class="faq-arrow">▾</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Bà Năm sẽ liên hệ qua Zalo/điện thoại trước khi giao. Nếu bạn vắng, chúng tôi có thể để lại tại hàng xóm tin cậy hoặc hẹn khung giờ khác — hoàn toàn linh hoạt theo bạn.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Cam kết "1 đổi 1" áp dụng thế nào?
+                            <span class="faq-arrow">▾</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Nếu nhận hàng không đạt chuẩn tươi (mùi lạ, màu sắc khác thường), chụp ảnh gửi Zalo ngay khi mở thùng — Bà Năm sẽ <strong>đổi hoặc hoàn tiền 100%</strong> trong ngày, không hỏi thêm câu nào.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Làm sao biết hôm nay còn loại hải sản tôi muốn?
+                            <span class="faq-arrow">▾</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Xem mục <strong>"Mẻ Lưới Hôm Nay"</strong> ở trên — cập nhật mỗi sáng sớm. Hoặc nhắn Zalo để hỏi trực tiếp, Bà Năm trả lời trong vài phút.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Đặt trước bao lâu thì chắc có hàng?
+                            <span class="faq-arrow">▾</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p><strong>48 giờ trước</strong> là lý tưởng nhất — đặc biệt với combo tiệc hoặc số lượng lớn. Bà Năm sẽ chủ động chọn mẻ lưới tốt nhất, đảm bảo đủ số lượng và chất lượng đúng yêu cầu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Reviews Section -->
     <section id="reviews" class="section reviews-section">
         <div class="container">
@@ -307,9 +469,17 @@
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
+                    <!-- 📸 THAY BẰNG ẢNH THẬT: ảnh khách mở thùng hải sản -->
+                    <div class="review-ugc">
+                        <div class="img-placeholder ugc-placeholder">
+                            <span class="ph-icon">📦</span>
+                            <p class="ph-label">Ảnh khách<br>mở thùng</p>
+                        </div>
+                    </div>
                     <p class="review-text" data-i18n="rev_1_text">"Mình đặt combo lẩu cho tiệc cuối tuần, mở thùng ra cá mực vẫn còn tươi rói, sạch sẽ không cần làm lại. Sẽ ủng hộ shop dài dài."</p>
                     <div class="review-author">
-                        <div class="author-avatar">C</div>
+                        <!-- 📸 THAY BẰNG avatar ảnh thật của khách (tròn 50x50) -->
+                        <div class="author-avatar">L</div>
                         <div>
                             <h4 data-i18n="rev_1_name">Chị Lan Phương</h4>
                             <p data-i18n="rev_1_loc">TP. HCM</p>
@@ -318,9 +488,17 @@
                 </div>
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
+                    <!-- 📸 THAY BẰNG ẢNH THẬT: ảnh khách nhận hàng / nấu món -->
+                    <div class="review-ugc">
+                        <div class="img-placeholder ugc-placeholder">
+                            <span class="ph-icon">🦀</span>
+                            <p class="ph-label">Ảnh khách<br>nhận ghẹ</p>
+                        </div>
+                    </div>
                     <p class="review-text" data-i18n="rev_2_text">"Ghẹ xanh chắc nịch, gạch nhiều. Gọi điện hotline tư vấn rất nhiệt tình, giao hàng nhanh đúng hẹn 2 tiếng. Bà Năm bán hàng rất uy tín."</p>
                     <div class="review-author">
-                        <div class="author-avatar" style="background:var(--accent);">A</div>
+                        <!-- 📸 THAY BẰNG avatar ảnh thật của khách -->
+                        <div class="author-avatar" style="background:var(--accent);">Q</div>
                         <div>
                             <h4 data-i18n="rev_2_name">Anh Quốc Bảo</h4>
                             <p data-i18n="rev_2_loc">TP. HCM</p>
@@ -329,9 +507,17 @@
                 </div>
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
+                    <!-- 📸 THAY BẰNG ẢNH THẬT: ảnh hộp quà / thùng hải sản biếu sếp -->
+                    <div class="review-ugc">
+                        <div class="img-placeholder ugc-placeholder">
+                            <span class="ph-icon">🎁</span>
+                            <p class="ph-label">Ảnh hộp<br>quà biếu</p>
+                        </div>
+                    </div>
                     <p class="review-text" data-i18n="rev_3_text">"Hải sản đóng thùng xốp rất chuyên nghiệp, mua biếu sếp cũng thấy sang trọng. Rất ưng ý chất lượng mực lá ở đây."</p>
                     <div class="review-author">
-                        <div class="author-avatar" style="background:#d4af37;">C</div>
+                        <!-- 📸 THAY BẰNG avatar ảnh thật của khách -->
+                        <div class="author-avatar" style="background:#d4af37;">T</div>
                         <div>
                             <h4 data-i18n="rev_3_name">Cô Thu Tâm</h4>
                             <p data-i18n="rev_3_loc">Đồng Nai</p>
@@ -401,7 +587,7 @@
                     </label>
                 </div>
                 <div class="prep-preview">
-                    <img id="prepPreviewImg" src="" alt="Minh họa sơ chế">
+                    <img id="prepPreviewImg" src="" alt="Minh họa sơ chế" style="display:none">
                     <p id="prepPreviewText" data-i18n="prep_img_text">Hình minh họa</p>
                 </div>
             </div>
