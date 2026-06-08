@@ -3,19 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hải Sản Bà Năm | Tươi Sống Khỏi Chê</title>
-    <meta name="description" content="Hải Sản Bà Năm chuyên cung cấp các loại hải sản vùng biển Phan Thiết - Bình Thuận. Tươi ngon mỗi ngày.">
+    <title>Hải Sản Bà Năm | Tươi Sống Phan Thiết – Giao Hàng 2H Nội Ô</title>
+    <meta name="description" content="Hải Sản Bà Năm – chuyên cung cấp hải sản tươi sống Phan Thiết: mực lá, ghẹ xanh, cá bóp. Giao hàng miễn phí nội ô trong 2 giờ. Đặt hàng qua Zalo: 082 355 9496.">
+    <meta name="keywords" content="hải sản Phan Thiết, mực lá Phan Thiết, ghẹ xanh tươi sống, cá bóp Bình Thuận, hải sản tươi sống giao hàng tận nhà">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://haisanbanam.com/">
+    <meta property="og:title" content="Hải Sản Bà Năm | Tươi Sống Phan Thiết">
+    <meta property="og:description" content="Hải sản tươi sống chuẩn vị Phan Thiết. Giao miễn phí nội ô 2H. Đặt qua Zalo: 082 355 9496.">
+    <meta property="og:image" content="https://haisanbanam.com/assets/hero_phanthiet_1779929524622.png">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="og:site_name" content="Hải Sản Bà Năm">
+
+    <!-- Favicon SVG inline -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23005B96'/><text x='50' y='68' font-family='serif' font-size='44' font-weight='bold' text-anchor='middle' fill='white'>BN</text></svg>">
+
+    <!-- Schema LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FoodEstablishment",
+      "name": "Hải Sản Bà Năm",
+      "alternateName": "Ba Nam Seafood",
+      "url": "https://haisanbanam.com",
+      "telephone": "+84823559496",
+      "image": "https://haisanbanam.com/assets/hero_phanthiet_1779929524622.png",
+      "description": "Chuyên cung cấp hải sản tươi sống Phan Thiết – mực lá, ghẹ xanh, cá bóp. Giao hàng miễn phí nội ô trong 2 giờ.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "20/15 Lê Văn Phấn",
+        "addressLocality": "Phú Thủy, TP. Phan Thiết",
+        "addressRegion": "Bình Thuận",
+        "postalCode": "77000",
+        "addressCountry": "VN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.9804,
+        "longitude": 108.1087
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "07:00",
+          "closes": "21:00"
+        }
+      ],
+      "priceRange": "280.000đ – 550.000đ/kg",
+      "servesCuisine": "Hải sản tươi sống",
+      "areaServed": "Phan Thiết, Bình Thuận",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "3"
+      }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <div class="container info-bar-inner">
+            <span>🕐 Nhận đơn: <strong>7:00 – 21:00</strong> hàng ngày</span>
+            <span class="info-divider">|</span>
+            <span>🛵 Giao <strong>miễn phí nội ô</strong> Phan Thiết</span>
+            <span class="info-divider">|</span>
+            <span>🏪 Hoặc <strong>đến lấy trực tiếp</strong> tại cửa hàng</span>
+            <span class="info-divider">|</span>
+            <a href="https://zalo.me/0823559496" target="_blank">📦 Ngoại ô → <strong>Nhắn Zalo báo giá ship</strong></a>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <header class="navbar">
         <div class="container">
             <a href="#" class="logo" data-i18n="logo_text">Bà Năm</a>
-            <nav class="nav-links">
+            <nav class="nav-links" id="navLinks">
                 <a href="#home" data-i18n="nav_home">Trang chủ</a>
                 <a href="#about" data-i18n="nav_about">Cam kết</a>
                 <a href="#products" data-i18n="nav_products">Sản phẩm</a>
@@ -23,7 +94,7 @@
                 <a href="#combo" data-i18n="nav_combo">Combo</a>
                 <a href="#reviews" data-i18n="nav_reviews">Đánh giá</a>
             </nav>
-            <div class="header-right">
+            <div class="header-right" id="headerRight">
                 <div class="header-phone">
                     <a href="tel:0823559496" class="btn-outline">📞 082 355 9496</a>
                 </div>
@@ -32,11 +103,11 @@
                     <button id="lang-en" class="lang-btn">EN</button>
                 </div>
             </div>
-            <div class="mobile-menu-btn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </header>
 
@@ -80,7 +151,7 @@
             <div class="section-header">
                 <h2 data-i18n="prod_title">Sản Phẩm Hôm Nay</h2>
             </div>
-            
+
             <div class="product-grid">
                 <div class="product-card">
                     <div class="product-img">
@@ -185,7 +256,7 @@
                 <h2 data-i18n="combo_sec_title">Combo Tối Ưu, Trọn Vị Yêu Thương</h2>
                 <p data-i18n="combo_sec_desc">Tiết kiệm thời gian và chi phí với các mâm hải sản được thiết kế riêng cho bữa tiệc của gia đình bạn.</p>
             </div>
-            
+
             <div class="combo-card-large">
                 <div class="combo-image">
                     <img src="assets/combo_hotpot_1779944512594.png" alt="Combo Lẩu Hải Sản">
@@ -263,6 +334,9 @@
                     </div>
                 </div>
             </div>
+            <div class="reviews-footer">
+                <p data-i18n="rev_more">Xem thêm đánh giá thực tế từ khách hàng — nhắn <a href="https://zalo.me/0823559496" target="_blank">Zalo: 082 355 9496</a></p>
+            </div>
         </div>
     </section>
 
@@ -287,6 +361,7 @@
             <div class="footer-col">
                 <h4 data-i18n="footer_contact_title">Thông Tin Liên Hệ</h4>
                 <p><span data-i18n="footer_address">📍 Địa chỉ: 20/15 Lê Văn Phấn, Phường Phú Thủy, TP. Phan Thiết</span></p>
+                <p data-i18n="footer_hours">🕐 Giờ nhận đơn: 7:00 – 21:00 hàng ngày</p>
                 <div class="map-container" style="margin-top: 15px;">
                     <iframe src="https://maps.google.com/maps?q=20/15%20L%C3%AA%20V%C4%83n%20Ph%E1%BA%A5n,%20Ph%C6%B0%E1%BB%9Dng%20Ph%C3%BA%20Th%E1%BB%A7y,%20Phan%20Thi%E1%BA%BFt&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="200" style="border:0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" allowfullscreen="" loading="lazy"></iframe>
                 </div>
@@ -303,7 +378,7 @@
             <span class="close-modal">&times;</span>
             <h2 id="modalTitle" data-i18n="modal_title">Đặt Mua Sản Phẩm</h2>
             <p class="modal-desc" data-i18n="modal_desc">Vui lòng liên hệ trực tiếp để chúng tôi chốt đơn và phục vụ bạn tốt nhất.</p>
-            
+
             <div class="prep-section" id="prepSection">
                 <h4 data-i18n="modal_prep_title">Chọn cách sơ chế:</h4>
                 <div class="prep-options">
@@ -332,6 +407,15 @@
             </div>
         </div>
     </div>
+
+    <!-- Floating Zalo Button -->
+    <a href="https://zalo.me/0823559496" target="_blank" class="zalo-float" aria-label="Chat Zalo">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="24" fill="#0068FF"/>
+            <text x="24" y="32" font-family="Arial,sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Zalo</text>
+        </svg>
+        <span class="zalo-tooltip">Chat Zalo ngay!</span>
+    </a>
 
     <script src="script.js"></script>
 </body>
