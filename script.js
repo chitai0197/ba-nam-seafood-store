@@ -1,3 +1,19 @@
+// ================================================================
+// 🌊 MẺ LƯỚI HÔM NAY — CẬP NHẬT HẰNG NGÀY
+// Trạng thái: "available" = Còn hàng | "limited" = Sắp hết | "soldout" = Hết hôm nay
+// ================================================================
+const catchDate = "08/06/2026"; // ← ĐỔI NGÀY MỖI NGÀY
+
+const dailyCatch = [
+    { name: "Mực Lá Phan Thiết", price: "420,000đ", unit: "kg", status: "available" },
+    { name: "Ghẹ Xanh Sống",     price: "550,000đ", unit: "kg", status: "limited"   },
+    { name: "Cá Bóp Cắt Lát",    price: "280,000đ", unit: "kg", status: "available" },
+    { name: "Tôm Sú Sống",       price: "380,000đ", unit: "kg", status: "soldout"   },
+    { name: "Cua Biển",          price: "480,000đ", unit: "kg", status: "available" },
+    { name: "Cá Mú Biển",        price: "320,000đ", unit: "kg", status: "limited"   },
+];
+// ================================================================
+
 const i18n = {
     vi: {
         logo_text: "Bà Năm",
@@ -308,7 +324,6 @@ function openOrderModal(productNameVI, originalImage, showPrep = true) {
 
 function updatePrepPreview() {
     const selectedPrep = document.querySelector('input[name="prepType"]:checked').value;
-    
     if (selectedPrep === 'raw') {
         prepPreviewImg.src = currentProductOriginalImage;
     } else if (selectedPrep === 'cleaned') {
@@ -316,29 +331,59 @@ function updatePrepPreview() {
     } else if (selectedPrep === 'steamed') {
         prepPreviewImg.src = 'assets/prep_steamed_1779929618781.png';
     }
+    // Show img only when src is set, hide broken icon
+    prepPreviewImg.style.display = prepPreviewImg.src ? 'block' : 'none';
 }
 
-closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
-
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-    }
-});
+closeModal.addEventListener('click', () => { modal.style.display = 'none'; });
+window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
 // Mobile menu toggle
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const navLinksEl = document.getElementById('navLinks');
+mobileMenuBtn.addEventListener('click', () => navLinksEl.classList.toggle('open'));
+navLinksEl.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinksEl.classList.remove('open')));
 
-mobileMenuBtn.addEventListener('click', () => {
-    navLinksEl.classList.toggle('open');
-});
+// ===== Render Daily Catch =====
+(function renderDailyCatch() {
+    const grid = document.getElementById('catchGrid');
+    const dateEl = document.getElementById('catchDateDisplay');
+    if (!grid) return;
 
-// Close mobile menu when a nav link is clicked
-navLinksEl.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinksEl.classList.remove('open');
+    if (dateEl) dateEl.textContent = catchDate;
+
+    const statusLabel = { available: 'Còn hàng', limited: 'Sắp hết', soldout: 'Hết hôm nay' };
+    const statusClass = { available: 'status-available', limited: 'status-limited', soldout: 'status-soldout' };
+
+    grid.innerHTML = dailyCatch.map(item => `
+        <div class="catch-card${item.status === 'soldout' ? ' soldout' : ''}">
+            <div class="catch-name">${item.name}</div>
+            <div class="catch-price">${item.price}<span>/${item.unit}</span></div>
+            <span class="catch-status ${statusClass[item.status]}">${statusLabel[item.status]}</span>
+            ${item.status !== 'soldout'
+                ? `<a href="https://zalo.me/0823559496" target="_blank" class="catch-btn">💬 Đặt qua Zalo</a>`
+                : `<span class="catch-btn" style="background:#ccc;cursor:not-allowed;color:#666;">Hết hôm nay</span>`
+            }
+        </div>
+    `).join('');
+})();
+
+// ===== FAQ Accordion =====
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+        // Close all others first
+        document.querySelectorAll('.faq-question').forEach(b => {
+            b.setAttribute('aria-expanded', 'false');
+            b.nextElementSibling.classList.remove('open');
+        });
+
+        // Toggle clicked item
+        if (!isOpen) {
+            btn.setAttribute('aria-expanded', 'true');
+            answer.classList.add('open');
+        }
     });
 });
