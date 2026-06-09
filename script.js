@@ -5,12 +5,11 @@
 const catchDate = "08/06/2026"; // ← ĐỔI NGÀY MỖI NGÀY
 
 const dailyCatch = [
-    { name: "Mực Lá Phan Thiết", price: "420,000đ", unit: "kg", status: "available" },
-    { name: "Ghẹ Xanh Sống",     price: "550,000đ", unit: "kg", status: "limited"   },
-    { name: "Cá Bóp Cắt Lát",    price: "280,000đ", unit: "kg", status: "available" },
-    { name: "Tôm Sú Sống",       price: "380,000đ", unit: "kg", status: "soldout"   },
-    { name: "Cua Biển",          price: "480,000đ", unit: "kg", status: "available" },
-    { name: "Cá Mú Biển",        price: "320,000đ", unit: "kg", status: "limited"   },
+    { name: "Mực Ống", price: "360.000đ", unit: "kg", status: "available", image: "assets/Mực ống_360.jpg" },
+    { name: "Cá Bóp Nguyên Con", price: "250.000đ", unit: "kg", status: "available", image: "assets/Cá bóp nguyên con_250.jpg" },
+    { name: "Cá Bóp Cắt Lát", price: "350.000đ", unit: "kg", status: "available", image: "assets/Cá bóp cắt lát_350.jpg" },
+    { name: "Tôm Thẻ", price: "220.000đ", unit: "kg", status: "available", image: "assets/Tôm thẻ_220_2.jpg" },
+    { name: "Ghẹ Xanh Nhàn", price: "400.000đ", unit: "kg", status: "available", image: "assets/Ghẹ nhàn_400.jpg" }
 ];
 // ================================================================
 
@@ -87,15 +86,15 @@ const i18n = {
         
         rev_title: "Khách Hàng Đánh Giá",
         rev_desc: "Hàng ngàn bữa ăn gia đình đã thêm phần trọn vẹn cùng Hải Sản Bà Năm.",
-        rev_1_text: "\"Mình đặt combo lẩu cho tiệc cuối tuần, mở thùng ra cá mực vẫn còn tươi rói, sạch sẽ không cần làm lại. Sẽ ủng hộ shop dài dài.\"",
+        rev_1_text: "\"Hải sản tươi rói, làm sạch sẽ, ăn ngọt thịt. Bữa sau sẽ mua tiếp.\"",
         rev_1_name: "Chị Lan Phương",
-        rev_1_loc: "TP. HCM",
-        rev_2_text: "\"Ghẹ xanh chắc nịch, gạch nhiều. Gọi điện hotline tư vấn rất nhiệt tình, giao hàng nhanh đúng hẹn 2 tiếng. Bà Năm bán hàng rất uy tín.\"",
+        rev_1_loc: "Phường Phú Thủy, Phan Thiết",
+        rev_2_text: "\"Ghẹ giao tới còn búng, chắc nịch, gạch nhiều. Giá này quá ổn.\"",
         rev_2_name: "Anh Quốc Bảo",
-        rev_2_loc: "TP. HCM",
-        rev_3_text: "\"Hải sản đóng thùng xốp rất chuyên nghiệp, mua biếu sếp cũng thấy sang trọng. Rất ưng ý chất lượng mực lá ở đây.\"",
+        rev_2_loc: "Phường Thanh Hải, Phan Thiết",
+        rev_3_text: "\"Mực lá giòn, tươi. Bà chủ nhiệt tình, giao hàng cũng lẹ.\"",
         rev_3_name: "Cô Thu Tâm",
-        rev_3_loc: "Đồng Nai",
+        rev_3_loc: "Phường Đức Nghĩa, Phan Thiết",
         
         footer_brand: "Bà Năm",
         footer_desc: "Mang hương vị đại dương đến bàn ăn. Uy tín, chất lượng, tươi sống mỗi ngày.",
@@ -357,6 +356,7 @@ navLinksEl.querySelectorAll('a').forEach(link => link.addEventListener('click', 
 
     grid.innerHTML = dailyCatch.map(item => `
         <div class="catch-card${item.status === 'soldout' ? ' soldout' : ''}">
+            ${item.image ? `<img src="${item.image}" alt="${item.name}" class="catch-img">` : ''}
             <div class="catch-name">${item.name}</div>
             <div class="catch-price">${item.price}<span>/${item.unit}</span></div>
             <span class="catch-status ${statusClass[item.status]}">${statusLabel[item.status]}</span>

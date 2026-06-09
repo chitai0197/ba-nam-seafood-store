@@ -1565,3 +1565,7 @@ footer {
     .payment-methods { grid-template-columns: 1fr; }
     .owner-story-block { margin-top: 40px; padding-top: 40px; }
 }
+
+.catch-img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+
+.ugc-img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 14px; }
