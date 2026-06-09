@@ -2,7 +2,8 @@
 // 🌊 MẺ LƯỚI HÔM NAY — CẬP NHẬT HẰNG NGÀY
 // Trạng thái: "available" = Còn hàng | "limited" = Sắp hết | "soldout" = Hết hôm nay
 // ================================================================
-const catchDate = "08/06/2026"; // ← ĐỔI NGÀY MỖI NGÀY
+const today = new Date();
+const catchDate = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
 
 const dailyCatch = [
     { name: "Mực Ống", price: "360.000đ", unit: "kg", status: "available", image: "assets/Mực ống_360.jpg" },
